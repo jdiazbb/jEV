@@ -8,4 +8,5 @@ Por defecto usa la IP 192.168.2.11, y los comandos que acepta son ev1_on, ev1_of
 ev3_on, ev3_off, all_on, all_off, por ejemplo:
 
 http://192.168.2.11/ev1_on
+
 http://192.168.2.11/ev1_on&ev2_off
