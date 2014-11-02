@@ -8,7 +8,7 @@
 // ENABLE/DISABLE FUNCTIONS
 // ------------------------------------------------------
 //#define DEBUG
-#define TEMPERATURE
+//#define TEMPERATURE
 //#define WATCHDOG
 
 #ifdef TEMPERATURE
@@ -23,8 +23,8 @@
 // ------------------------------------------------------
 // Network Configuration
 // ------------------------------------------------------
-byte 			mac[] = 		{ 0xDE, 0xAD, 0x13, 0x13, 0x13, 0x13 };
-byte 			ip[] = 			{ 192, 168, 2, 13 };
+byte 			mac[] = 		{ 0xDE, 0xAD, 0x12, 0x12, 0x12, 0x12 };
+byte 			ip[] = 			{ 192, 168, 2, 12 };
 byte 			gateway[] = 		{ 192, 168, 2, 1 };
 byte 			subnet[] = 		{ 255, 255, 255, 0 };
 
@@ -220,6 +220,7 @@ void return_status_to_client()
   double atemp;
   long vcc;
   char a[7][20];
+  unsigned long t=millis();
 
   // 1a. Calculamos las tres medias de consumo
   average = 0;
@@ -249,12 +250,13 @@ void return_status_to_client()
                       "watts:%s\r\n<br/>\r\n"
                       "atemp:%s\r\n<br/>\r\n"
                       "avcc:%d\r\n<br/>\r\n"
+                      "millis:%lu\r\b<br/>\r\n"
 #ifdef TEMPERATURE
                       "tempDS:%s\r\n<br/>\r\n"
 #endif
                       ,
            dtostrf(power,2,3,a[0]),dtostrf(real_power,2,3,a[1]),dtostrf(current,2,3,a[2]),dtostrf(watts,2,3,a[3]),
-           dtostrf(atemp,2,3,a[5]),(int)vcc
+           dtostrf(atemp,2,3,a[5]),(int)vcc,t
 #ifdef TEMPERATURE
            ,dtostrf(readTempSensor(temp_sensor_address),2,3,a[4])
 #endif
