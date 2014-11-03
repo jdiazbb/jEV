@@ -13,7 +13,7 @@
 #include <stdarg.h>
 #include <avr/eeprom.h>
 
-#define FLOATEMIT // uncomment line to enable $T in emit_P for float emitting
+//#define FLOATEMIT // uncomment line to enable $T in emit_P for float emitting
 
 byte Stash::map[256/8];
 Stash::Block Stash::bufs[2];
