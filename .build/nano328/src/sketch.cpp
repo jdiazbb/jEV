@@ -1,8 +1,30 @@
 #include <Arduino.h>
+#include <Arduino.h>
 #include <SPI.h>
 #include <EtherCard.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#include <avr/wdt.h>
+void setup();
+void loop();
+void process_client_request(char* data);
+void return_status_to_client();
+void power_off_device(int device_number);
+void power_on_device(int device_number);
+double readInternalTemp();
+long readVcc();
+double readTempSensor(DeviceAddress sensor_address);
+void debug(char* message);
+void debug2(char* message, int value);
+void soft_reset();
+#line 1 "src/sketch.ino"
+//#include <Arduino.h>
+//#include <SPI.h>
+//#include <EtherCard.h>
+//#include <stdlib.h>
+//#include <stdarg.h>
 
 // ------------------------------------------------------
 // ENABLE/DISABLE FUNCTIONS
@@ -12,12 +34,12 @@
 //#define WATCHDOG
 
 #ifdef TEMPERATURE
-#include <OneWire.h>
-#include <DallasTemperature.h>
+//#include <OneWire.h>
+//#include <DallasTemperature.h>
 #endif
 
 #ifdef WATCHDOG
-#include <avr/wdt.h>
+//#include <avr/wdt.h>
 #endif
 
 #define VERSION "1.5"
@@ -25,8 +47,8 @@
 // ------------------------------------------------------
 // Network Configuration
 // ------------------------------------------------------
-byte 			mac[] = 		{ 0xDE, 0xAD, 0x14, 0x14, 0x14, 0x14 };
-byte 			ip[] = 			{ 192, 168, 2, 14 };
+byte 			mac[] = 		{ 0xDE, 0xAD, 0x12, 0x12, 0x12, 0x12 };
+byte 			ip[] = 			{ 192, 168, 2, 12 };
 byte 			gateway[] = 		{ 192, 168, 2, 1 };
 byte 			subnet[] = 		{ 255, 255, 255, 0 };
 
