@@ -20,14 +20,12 @@
 #include <avr/wdt.h>
 #endif
 
-#define VERSION "1.5"
-
 // ------------------------------------------------------
 // Network Configuration
 // ------------------------------------------------------
 byte 			mac[] = 		{ 0xDE, 0xAD, 0x14, 0x14, 0x14, 0x14 };
-byte 			ip[] = 			{ 192, 168, 2, 14 };
-byte 			gateway[] = 		{ 192, 168, 2, 1 };
+byte 			ip[] = 			{ 192, 168, 3, 14 };
+byte 			gateway[] = 		{ 192, 168, 3, 1 };
 byte 			subnet[] = 		{ 255, 255, 255, 0 };
 
 int 			pos;
@@ -246,7 +244,7 @@ void return_status_to_client()
                       "Refresh: 15\r\n\r\n"
 //#endif
                       "<html>\r\n"
-                      "version:",VERSION,"\r\n<br/>\r\n"
+                      "version:1.5\r\n<br/>\r\n"
                       "powerADC:%s\r\n<br/>\r\n"
                       "power:%s\r\n<br/>\r\n"
                       "current:%s\r\n<br/>\r\n"
