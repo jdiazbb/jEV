@@ -244,14 +244,14 @@ void return_status_to_client()
                       "Refresh: 15\r\n\r\n"
 //#endif
                       "<html>\r\n"
-                      "version:1.5\r\n<br/>\r\n"
+                      "version:1.6\r\n<br/>\r\n"
                       "powerADC:%s\r\n<br/>\r\n"
                       "power:%s\r\n<br/>\r\n"
                       "current:%s\r\n<br/>\r\n"
                       "watts:%s\r\n<br/>\r\n"
                       "atemp:%s\r\n<br/>\r\n"
                       "avcc:%d\r\n<br/>\r\n"
-                      "millis:%lu\r\b<br/>\r\n"
+                      "millis:%lu\r\n<br/>\r\n"
 #ifdef TEMPERATURE
                       "tempDS:%s\r\n<br/>\r\n"
 #endif
